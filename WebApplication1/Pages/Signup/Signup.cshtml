@@ -1,0 +1,89 @@
+﻿@page
+@model WebApplication1.Pages.Signup.SignupModel
+@{
+
+
+<br>
+<h2>Sign Up</h2>
+
+
+@if (Model.errorMessage.Length>0) {
+<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+ <strong> @Model.errorMessage</strong
+     <button type='button'class='btn-close'data-bs-dismiss='alert'aria-label='Close'></button>
+    </div>
+    } 
+<form method="POST">
+	<div class="row mb-3">
+     <label class="col-sm-3 col-form-label">Name</label>
+     <div class="col-sm-6">
+       <input type="text" class="form-control" name="name" value="@Model.usersInfo.name">
+    </div>
+</div>
+
+<div class="row mb-3">
+     <label class="col-sm-3 col-form-label">Email</label>
+     <div class="col-sm-6">
+       <input type="text" class="form-control" name="email" value="@Model.usersInfo.email">
+    </div>
+</div>
+
+<div class="row mb-3">
+     <label class="col-sm-3 col-form-label">Phone</label>
+     <div class="col-sm-6">
+       <input type="text" class="form-control" name="phone" value="@Model.usersInfo.phone">
+    </div>
+</div>
+
+<div class="row mb-3">
+     <label class="col-sm-3 col-form-label">Password</label>
+     <div class="col-sm-6">
+       <input type="password" class="form-control" id="input1" name="password1" value="@Model.usersInfo.pass">
+    </div>
+</div>
+<div class="row mb-3">
+     <label class="col-sm-3 col-form-label">Password</label>
+     <div class="col-sm-6">
+       <input type="password" class="form-control" id="input2" name="password2" value="">
+    </div>
+    <div class="col-sm-6">
+    <input type="checkbox" onclick="myFunction()">Show Password
+    </div>
+
+    <script>
+function myFunction() {
+  var x = document.getElementById("input1");
+  var y = document.getElementById("input2");
+  if (x.type === "password" && y.type === "password") {
+    x.type = "text";
+    y.type = "text";
+  } else {
+    x.type = "password";
+    y.type = "password";
+  }
+}
+</script>
+</div>
+
+@if (Model.successMessage.Length>0) {
+<div class="row mb-3">
+    <div class="col-sm-9">
+        <div class='alert alert-success alert-dismissible fade show'role='alert'>
+          <strong>@Model.successMessage</strong>
+          <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>
+    </div>
+</div>
+}
+
+<div class="row mb-3">
+    <div class="offset-sm-3 col-sm-3 d-grid">
+      <button type="submit" class="btn btn-primary">Signup</button>
+    </div>
+    <div class="col-sm-3d-grid">
+      <a class="btn btn-outline-primary" href="/" Fole="button"> Cancel </a>
+    </div>
+</div>
+
+</form>
+}
